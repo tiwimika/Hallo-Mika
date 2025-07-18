@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Selamat Ulang Tahun Mika</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f3f3;
+      color: #333;
+      text-align: center;
+      padding: 40px;
+    }
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
+    button {
+      background-color: #ff7f7f;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    textarea, input {
+      padding: 10px;
+      width: 80%;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page active" id="page1">
+  <h1>Hallo Mika Christian 👋</h1>
+  <p>Apakah kamu siap membuka halaman ini?</p>
+  <button onclick="nextPage()">Iya, aku siap!</button>
+</div>
+
+<div class="page" id="page2">
+  <h1>Besok tanggal 19 nih 🎉</h1>
+  <p>Selamat hari lahir ya!</p>
+  <button onclick="nextPage()">Lanjut</button>
+</div>
+
+<div class="page" id="page3">
+  <h1>Selamat ulang tahun, sayang 💖</h1>
+  <p>Mudah-mudahan kita selalu bersama selamanya, dunia akhirat.</p>
+  <p>
+    Mudah-mudahan setiap langkahmu selalu dalam lindungan-Nya.<br>
+    Diberi umur yang berkah, hati yang tenang, dan cinta yang tulus di sekitarmu.<br>
+    Apa pun yang kamu impikan, mudah-mudahan perlahan pasti menjadi nyata.<br>
+    Dan di saat kamu lelah, mudah-mudahan selalu ada aku dan pelukan hangatku yang menenangkanmu.
+  </p>
+  <button onclick="nextPage()">Lanjut</button>
+</div>
+
+<div class="page" id="page4">
+  <h1>Ada permintaan apa nih? 🥺</h1>
+  <p>Minta apa aja boleh — biar hari ulang tahunmu makin spesial ✨</p>
+  <input type="text" id="requestInput" placeholder="Tulis permintaanmu di sini...">
+  <br>
+  <button onclick="submitRequest()">Kirim</button>
+  <p id="response" style="margin-top:20px;"></p>
+</div>
+
+<script>
+  let currentPage = 1;
+  function nextPage() {
+    document.getElementById("page" + currentPage).classList.remove("active");
+    currentPage++;
+    document.getElementById("page" + currentPage).classList.add("active");
+  }
+
+  function submitRequest() {
+    const request = document.getElementById("requestInput").value;
+    if (request.trim() === "") {
+      alert("Tulis dulu dong permintaannya!");
+      return;
+    }
+    document.getElementById("response").innerText = `🎁 Permintaan "${request}" sudah aku catat yaa. Akan aku usahakan semampuku 💌`;
+  }
+</script>
+
+</body>
+</html>
